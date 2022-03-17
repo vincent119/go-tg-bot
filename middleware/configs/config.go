@@ -1,4 +1,4 @@
-package config
+package configs
 
 import (
 	//"log"
@@ -13,9 +13,9 @@ var (
 	cfg = pflag.StringP("Config","c","","")
 )
 
-type appConf struct {
-	Port string `mapstructure:"port"`
-}
+//type appConf struct {
+//	Port string `mapstructure:"port"`
+//}
 type Url1 struct {
 	LogName string `mapstructure:"logname"`
 }

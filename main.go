@@ -5,16 +5,15 @@ import(
 	"fmt"
 	//"github.com/gin-gonic/gin"
 	//"github.com/vincent119/go-tg-bot/config"
-	"github.com/vincent119/go-tg-bot/middleware/config"
-	
+	"github.com/vincent119/go-tg-bot/middleware/configs"
 	//"./config/getconfig"
 )
 func init(){
-	config.Init()
+	configs.Init()
 }
 
 func main(){
-	port := config.ServerPort()
+	port := configs.ServerPort()
 	fmt.Println(port)
 
 
