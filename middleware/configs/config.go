@@ -6,7 +6,7 @@ import (
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
 	"github.com/fsnotify/fsnotify"
-	"github.com/vincent119/go-tg-bot/config"
+	//"github.com/vincent119/go-tg-bot/config"
 	"fmt"
 )
 
@@ -14,9 +14,9 @@ var (
 	cfg = pflag.StringP("Config","c","","")
 )
 
-//type appConf struct {
-//	Port string `mapstructure:"port"`
-//}
+type appConf struct {
+		Port string `mapstructure:"port"`
+}
 type Url1 struct {
 	LogName string `mapstructure:"logname"`
 }
@@ -26,6 +26,8 @@ type RedisConfig struct {
 	Host string `mapstructure:"ip"`
 	TTL int `mapstructure:"ttl"`
 }
+
+
 
 type Config struct {
 	App appConf `mapstructure:"app"`
