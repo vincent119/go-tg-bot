@@ -1,4 +1,4 @@
-package configs
+package config
 
 import (
 	//"log"
@@ -6,6 +6,7 @@ import (
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
 	"github.com/fsnotify/fsnotify"
+	"github.com/vincent119/go-tg-bot/config"
 	"fmt"
 )
 
