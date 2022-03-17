@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	cfg = pflag.StringP("Config","c","","./config/")
+	cfg = pflag.StringP("Config","c","","")
 )
 
 type appConf struct {
