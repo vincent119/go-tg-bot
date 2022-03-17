@@ -26,10 +26,10 @@ type RedisConfig struct {
 	TTL int `mapstructure:"ttl"`
 }
 
-type config struct {
+type Config struct {
 	App appConf `mapstructure:"app"`
-	Uri1 Url1 `mapstructure:"url1"`
-	RedisCfg RedisConfig `mapstructure:"redis"`
+	//Uri1 Url1 `mapstructure:"url1"`
+	//RedisCfg RedisConfig `mapstructure:"redis"`
 }
 
 type LogrusConfig struct {
@@ -40,9 +40,10 @@ type LogrusConfig struct {
 	ReportCaller bool   `ini:"report_caller"`
 	Suffix       string `ini:"suffix_format"`
 }
-
+// 
 var cf *viper.Viper
-var Conf config
+var Conf Config
+
 func Init(){
 	//log.Print("This is the environment: ", env)
 	pflag.Parse()
@@ -60,7 +61,11 @@ func Init(){
 	if err != nil {
 	  panic(err)
 	}
-	cf.WatchConfig()
+	err = cf.Unmarshal(&Conf)
+	if err != nil {
+		panic(err)
+	}
+ 	cf.WatchConfig()
 	cf.OnConfigChange(func(e fsnotify.Event) {
 		fmt.Println("config file changed:", e.Name)
 		if err := cf.Unmarshal(&Conf); err != nil {
@@ -76,7 +81,9 @@ func Init(){
 		} else {
 				panic("Config file was found but another error was produced")
 		}
-  }
-
+  } 
 }
 
+func ServerPort()(x string) {
+  return Conf.App.Port
+}

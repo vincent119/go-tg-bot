@@ -2,16 +2,20 @@ package main
 
 import(
 
-	
+	"fmt"
 	//"github.com/gin-gonic/gin"
- "./config"
-
+	//"github.com/vincent119/go-tg-bot/config"
+	"github.com/vincent119/go-tg-bot/middleware/config"
+	
+	//"./config/getconfig"
 )
+func init(){
+	config.Init()
+}
 
 func main(){
-	getconfig.Init()
-
-
+	port := config.ServerPort()
+	fmt.Println(port)
 
 
 
